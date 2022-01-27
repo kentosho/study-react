@@ -37,9 +37,9 @@ class App extends Component {
       let Y = d.y - 25;
       let R = Math.floor(Math.random() *3);
       let C = "";
-      if ( R <= 0 ){
+      if ( R == 0 ){
          C = "#f663";
-      } else if ( R <= 1){
+      } else if ( R == 1){
          C = "#6f63";
       } else {
          C = "#66f3";
