@@ -33,15 +33,19 @@ class App extends Component {
    }
 
    draw(d){
-      let s = {
-         position:"absolute",
-         left:(d.x - 25)+"px",
-         top:(d.y -25)+"px",
-         width:"50px",
-         height:"50px",
-         backgroundColor:"#66f3",
+      let X = d.x - 25;
+      let Y = d.y - 25;
+      let R = Math.floor(Math.random() *3);
+      let C = "";
+      if ( R <= 0 ){
+         C = "#f663";
+      } else if ( R <= 1){
+         C = "#6f63";
+      } else {
+         C = "#66f3";
       };
-      return <div style={s}></div>
+ 
+      return <Rect x={X} y={Y} w="50" h="50" c={C} r="10"/>
    }
 
    render(){
