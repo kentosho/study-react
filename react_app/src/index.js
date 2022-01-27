@@ -4,6 +4,5 @@ import './index.css';
 import App from './App';
 
 ReactDom.render(
-   <App title="App" message="This is App Component by kent!" />,
-   document.getElementById('root')
+   <App />, document.getElementById('root')
 );
