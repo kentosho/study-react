@@ -4,6 +4,7 @@ import './App.css';
 
 class App extends Component {
    data = [];
+   key = 0;
 
    msgStyle = {
       fontSize:"20pt",
@@ -19,23 +20,24 @@ class App extends Component {
    constructor(props){
       super(props);
       this.state = {
-         list:this.data
+         list: this.data
       };
       this.doAction = this.doAction.bind(this);
    }
    doAction(e){
       let x = e.pageX;
       let y = e.pageY;
-      this.data.push({x:x,y:y});
+      this.data.push({x:x,y:y})
       this.setState({
-         list:this.data
-      });
+         list: this.data});
    }
 
    draw(d){
       let X = d.x - 25;
       let Y = d.y - 25;
-      let R = Math.floor(Math.random() *3);
+      var array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      let R = array[0]%3;
       let C = "";
       if ( R == 0 ){
          C = "#f663";
@@ -44,8 +46,10 @@ class App extends Component {
       } else {
          C = "#66f3";
       };
- 
-      return <Rect x={X} y={Y} w="50" h="50" c={C} r="10"/>
+      let K = X.toString() + "," + Y.toString() 
+         + "," + R.toString() ;
+      return <Rect x={X} y={Y} w="50" h="50"
+         c={C} r="10" />;
    }
 
    render(){
